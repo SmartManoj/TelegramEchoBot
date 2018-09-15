@@ -10,10 +10,10 @@ cfscrape==1.9.4
 chardet==3.0.4
 click==6.7
 colorama==0.3.9
-cryptography==2.2.2
+cryptography>=2.2.2
 dialogflow==0.1.0
 emoji==0.5.0
-Flask==0.12.2
+Flask>=0.12.2
 fuzzywuzzy==0.16.0
 Genderize==0.2.0
 google-api-core==0.1.3
