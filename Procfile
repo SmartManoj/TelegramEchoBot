@@ -1,1 +1,1 @@
-web: gunicorn --workers=1 bot:app
+web: gunicorn --workers=1 telegram:app
