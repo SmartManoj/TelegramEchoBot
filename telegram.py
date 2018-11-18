@@ -6,6 +6,17 @@ import urllib
 TOKEN = "429816072:AAG3p9BNXw4s_CcMMnPcg4TC34QX2QJRIcs"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
+@app.route('/')
+@app.route('/up/<srvc>')
+def main1(srvc='Cool'):
+	return f'''<div>You are Rocking Smart - {srvc}</div>'''
+
+
+@app.route('/open/<z>')
+def openz(z='z'):
+	f=open(z)
+	return f.read()+f'''_'''
+
 def get_updates(offset=None):
     url = URL + "getUpdates?timeout=100"
     if offset:
