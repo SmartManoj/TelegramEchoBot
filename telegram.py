@@ -2,6 +2,7 @@ import requests
 import time    
 import urllib
 
+app = Flask(__name__)
 
 TOKEN = "429816072:AAG3p9BNXw4s_CcMMnPcg4TC34QX2QJRIcs"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
