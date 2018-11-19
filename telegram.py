@@ -61,5 +61,12 @@ def echo_all(updates):
         except Exception as e:
             print(e)
 
+from threading import Thread
+def snt(f,a,b=None):
+  try:
+    Thread(None,f,None,a,b).start()
+  except Exception as e:
+    return str(e)
+snt(main,())
 if __name__ == '__main__':
     main()
