@@ -11,7 +11,7 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 @app.route('/')
 def main():
-	return f'''<html><head><title>Devandran</title></head><body><div>Visit:<a href="http://devandran.cf">Devandran</a><br>{}</div></body></html>'''.format(URL)
+	return f'''<html><head><title>Devandran</title></head><body><div>Visit:<a href="http://devandran.cf">Devandran</a><br></div></body></html>'''
 
 def get_updates(offset=None):
     url = URL + "getUpdates?timeout=100"
