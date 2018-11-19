@@ -35,6 +35,7 @@ def send_message(text, chat_id):
     		r=requests.get(gurl,headers=headers,)
     		if(i%10==0):
     			url=URL + "sendMessage?text={}&chat_id={}".format(i, chat_id)
+                r=requests.get(url,timeout=30)
     else:
     	url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     try:
