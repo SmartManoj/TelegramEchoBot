@@ -1,11 +1,12 @@
 import requests
 import time    
 import urllib
+from os import environ
 from flask import Flask,redirect, url_for,request,render_template
 
 app = Flask(__name__)
 
-TOKEN = '429816072:AAG3p9BNXw4s_CcMMnPcg4TC34QX2QJRIcs'
+TOKEN = os.environ['TGTOKEN']
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 @app.route('/')
