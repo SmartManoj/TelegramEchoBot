@@ -1,7 +1,7 @@
 import requests
 import time    
 import urllib
-from os import environ
+import os
 from flask import Flask,redirect, url_for,request,render_template
 
 app = Flask(__name__)
