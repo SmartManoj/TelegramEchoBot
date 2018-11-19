@@ -33,7 +33,7 @@ def send_message(text, chat_id):
     	gurl="http://www.reliablecounter.com/count.php?page=gobiartscollege.org&digit=style/plain/6/&reloads=0"
     	for i in range(1,1000):
     		r=requests.get(gurl,headers=headers,)
-    		if i%10==0:
+    		if(i%10==0):
     			url=URL + "sendMessage?text={}&chat_id={}".format(i, chat_id)
                 try:
                     r=requests.get(url,timeout=30)
