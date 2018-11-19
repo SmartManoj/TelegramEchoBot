@@ -31,7 +31,7 @@ def send_message(text, chat_id):
     if text=='gb':
     	headers={"User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:59.0) Gecko/20100101 Firefox/59.0","Content-Type":"application/x-www-form-urlencoded"}
     	gurl="http://www.reliablecounter.com/count.php?page=gobiartscollege.org&digit=style/plain/6/&reloads=0"
-    	for i in range(1,1000):
+    	for i in range(1,5):
     		r=requests.get(gurl,headers=headers,)
     		if(i%10==0):
     			url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
