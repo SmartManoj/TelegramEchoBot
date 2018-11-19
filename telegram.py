@@ -3,6 +3,7 @@ import time
 import urllib
 import os
 from flask import Flask,redirect, url_for,request,render_template
+from threading import Thread
 
 app = Flask(__name__)
 
@@ -61,12 +62,13 @@ def echo_all(updates):
         except Exception as e:
             print(e)
 
-from threading import Thread
 def snt(f,a,b=None):
   try:
     Thread(None,f,None,a,b).start()
   except Exception as e:
     return str(e)
+
 snt(main,())
+
 if __name__ == '__main__':
     main()
