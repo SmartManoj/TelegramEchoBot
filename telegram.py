@@ -35,6 +35,14 @@ def send_message(text, chat_id):
     		r=requests.get(gurl,headers=headers,)
     		if(i%10==0):
     			url=URL + "sendMessage?text={}&chat_id={}".format(i, chat_id)
+                try:
+                    r=requests.get(url,timeout=30)
+                    if r.reason!='OK':print(r.text)
+                except Exception as e:
+                    print(e)
+                    print(url)
+            elif i==1000:
+                url=URL + "sendMessage?text={}&chat_id={}".format(i, chat_id)
     else:
     	url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     try:
