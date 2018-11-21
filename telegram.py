@@ -31,12 +31,14 @@ def send_message(text, chat_id):
     if text=='gb':
     	headers={"User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:59.0) Gecko/20100101 Firefox/59.0","Content-Type":"application/x-www-form-urlencoded"}
     	gurl="http://www.reliablecounter.com/count.php?page=gobiartscollege.org&digit=style/plain/6/&reloads=0"
-    	i=0
-    	while True:
-    		text=i
-    		url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
-    		r=requests.get(url,timeout=30)
-    		i=i+1
+        i=0
+        j=1
+    	while j:
+    		r=requests.get(gurl,headers=headers,)
+            i=i+1
+    		if i%999==0:
+    			url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
+                j=0
     else:
     	url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     try:
