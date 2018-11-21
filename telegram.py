@@ -12,7 +12,7 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 @app.route('/')
 def main():
-	return f'''<html><head><title>Devandran</title></head><body><div>Visit:<a href="http://devandran.cf">Devandran</a><br></div></body></html>'''
+    return f'''<html><head><title>Devandran</title></head><body><div>Visit:<a href="http://devandran.cf">Devandran</a><br></div></body></html>'''
 
 def get_updates(offset=None):
     url = URL + "getUpdates?timeout=100"
@@ -29,18 +29,18 @@ def get_last_update_id(updates):
 def send_message(text, chat_id):
     text = urllib.parse.quote_plus(text)
     if text=='gb':
-    	headers={"User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:59.0) Gecko/20100101 Firefox/59.0","Content-Type":"application/x-www-form-urlencoded"}
-    	gurl="http://www.reliablecounter.com/count.php?page=gobiartscollege.org&digit=style/plain/6/&reloads=0"
+        headers={"User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:59.0) Gecko/20100101 Firefox/59.0","Content-Type":"application/x-www-form-urlencoded"}
+        gurl="http://www.reliablecounter.com/count.php?page=gobiartscollege.org&digit=style/plain/6/&reloads=0"
         i=0
         j=1
-    	while j:
-    		r=requests.get(gurl,headers=headers,)
+        while j:
+            r=requests.get(gurl,headers=headers)
             i=i+1
-    		if i%999==0:
-    			url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
+            if i%1000==0:
+                url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
                 j=0
     else:
-    	url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
+        url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     try:
         r=requests.get(url,timeout=30)
         if r.reason!='OK':print(r.text)
