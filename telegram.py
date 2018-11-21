@@ -35,6 +35,7 @@ def send_message(text, chat_id):
     	while True:
     		text=i
     		url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
+    		r=requests.get(url,timeout=30)
     		i=i+1
     else:
     	url=URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
