@@ -7,9 +7,9 @@ from threading import Thread
 
 app = Flask(__name__)
 
-TOKEN = os.environ['TGTOKEN']
+TOKEN = 'Enter your token'
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-
+print('Started')
 @app.route('/')
 def main():
     return f'''<html><head><title>Devandran</title></head><body><div>Visit:<a href="http://devandran.cf">Devandran</a><br></div></body></html>'''
@@ -83,5 +83,4 @@ def snt(f,a,b=None):
 
 snt(main,())
 
-if __name__ == '__main__':
-    main()
+
