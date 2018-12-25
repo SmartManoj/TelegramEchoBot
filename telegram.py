@@ -74,7 +74,7 @@ def echo_all(updates):
             msg(text,fname,chat)
         except Exception as e:
             print(e)
-def msg(text,fname='',chat=admin):
+def msg(text,fname='',chat=0):
     if text:
         print(chat,text)
     text=text.lower()
