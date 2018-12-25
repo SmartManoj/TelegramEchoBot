@@ -1,9 +1,10 @@
 import requests
-import time    
 import urllib
 import os
 from flask import Flask,redirect, url_for,request,render_template
 from threading import Thread
+from datetime import datetime,timedelta
+from time import sleep
 
 app = Flask(__name__)
 
@@ -45,7 +46,7 @@ def main():
             if z and len(z) > 0:
                 last_update_id = get_last_update_id(updates) + 1
                 echo_all(updates)
-            time.sleep(0.5)
+            sleep(0.5)
         except Exception as e:
             print(e)        
 
@@ -67,6 +68,18 @@ def snt(f,a,b=None):
     Thread(None,f,None,a,b).start()
   except Exception as e:
     return str(e)
+
+
+def restart():
+ while True:
+  try:
+   v=(datetime.utcnow()+timedelta(hours=5,minutes=30))
+   if(5*60<v.hour*60+v.minute<21*60+30):
+    requests.head("http://subdomain.herokuapp.com/up/pys",timeout=5)
+   sleep(25*60)
+  except Exception as e:
+   sleep(60)
+   continue
 
 snt(main,())
 
