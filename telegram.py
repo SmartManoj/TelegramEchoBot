@@ -8,8 +8,10 @@ from time import sleep
 
 app = Flask(__name__)
 
+domain='Heroku Domain name'
 TOKEN = 'Enter your token'
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+
 print('Started')
 @app.route('/')
 def main():
@@ -66,7 +68,7 @@ def echo_all(updates):
 def snt(f,a,b=None):
   try:
     Thread(None,f,None,a,b).start()
-  except Exception as e:
+  except Exception as e:        
     return str(e)
 
 
@@ -75,12 +77,13 @@ def restart():
   try:
    v=(datetime.utcnow()+timedelta(hours=5,minutes=30))
    if(5*60<v.hour*60+v.minute<21*60+30):
-    requests.head("http://subdomain.herokuapp.com/up/pys",timeout=5)
+    requests.head(f"http://{domain}.herokuapp.com",timeout=5)
    sleep(25*60)
   except Exception as e:
    sleep(60)
    continue
 
 snt(main,())
+snt(restart,())
 
 
