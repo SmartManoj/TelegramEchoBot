@@ -68,9 +68,12 @@ def main():
 def echo_all(updates):
     for update in updates["result"]:
         try:
-            fname =update["message"]['chat']['first_name']
-            chat = update["message"]["chat"]["id"]
-            text = update["message"].get("text")
+            bv='message'
+            if update.get('edited_message'):
+                bv='edited_'+bv
+            fname =update[bv]['chat']['first_name']
+            chat = update[bv]["chat"]["id"]
+            text = update[bv].get("text")
             msg(text,fname,chat)
         except Exception as e:
             print(e)
